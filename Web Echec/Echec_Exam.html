@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+  background-color: grey;
+  padding: 10px;
+}
+.w_team_b_tile {
+  height: 130px;
+  width: 130px;
+  background-color: black;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 26px;
+  font-size: 20px;
+  text-align: center;
+  color: blue;
+}
+.w_team_w_tile {
+  height: 130px;
+  width: 130px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 26px;
+  font-size: 20px;
+  text-align: center;
+  color: blue;
+}
+.b_team_b_tile {
+  height: 130px;
+  width: 130px;
+  background-color: black;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 26px;
+  font-size: 30px;
+  text-align: center;
+  color: red;
+}
+.b_team_w_tile {
+  height: 130px;
+  width: 130px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 26px;
+  font-size: 30px;
+  text-align: center;
+  color: red;
+}
+.b_tile {
+  height: 130px;
+  width: 130px;
+  background-color: black;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 26px;
+  font-size: 30px;
+  text-align: center;
+  color: red;
+}
+.w_tile {
+  height: 130px;
+  width: 130px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 26px;
+  font-size: 20px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0);
+}
+.w_team_b_tile:hover {
+  background-color: darkblue;
+  transition: 0.5s;
+}
+.w_team_w_tile:hover {
+  background-color: skyblue;
+  transition: 0.5s;
+}
+.b_team_b_tile:hover {
+  background-color: darkred;
+  transition: 0.5s;
+}
+.b_team_w_tile:hover {
+  background-color: red;
+  transition: 0.5s;
+}
+.center{
+  display: grid;
+  place-item: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 60px;
+}
+
+<?php
+$myfile = fopen("Chess_Position.txt", "r") or die("Unable to open file!");
+while(!feof($myfile)) {
+  echo fgetc($myfile);
+}
+fclose($myfile);
+?>
+
+</style>
+</head>
+<body>
+
+<div id="count_up_timer">00:00:00</div>
+      <button id="stop_count_up_timer" onclick="clearInterval(timerVariable)">Stop Time</button>
+
+<h1 id="demo"></h1>
+<button type="button" onclick="myFunction()">Set background color</button>
+
+<script>
+function myFunction() {
+  document.body.style.backgroundColor = "red";
+}
+
+//Player Timer
+var timerVariable = setInterval(countUpTimer, 1000);
+var totalSeconds = 0;
+
+function countUpTimer() {
+  ++totalSeconds;
+  var hour = Math.floor(totalSeconds / 3600);
+  var minute = Math.floor((totalSeconds - hour * 3600) / 60);
+  var seconds = totalSeconds - (hour * 3600 + minute * 60);
+  document.getElementById("count_up_timer").innerHTML = hour + ":" + minute + ":" + seconds;
+}
+
+// Countdown to the end of the Exams
+// Set the date we're counting down to
+var countDownDate = new Date("Jun 17, 2022 18:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+</script>
+
+<div class="grid-container">
+
+  <div class="b_team_w_tile center">
+    <img src="./Chess_Pieces/no_background/black_rook.png" alt="black_rook" width="175" height="150">
+  </div>
+
+  <div class="b_team_b_tile">
+    <img src="./Chess_Pieces/no_background/black_knight.png" alt="black_knight" width="175" height="150">
+  </div>
+
+  <div class="b_team_w_tile">
+    <img src="./Chess_Pieces/no_background/black_bishop.png" alt="black_bishop" width="175" height="150">
+  </div>
+
+  <div class="b_team_b_tile">
+    <img src="./Chess_Pieces/no_background/black_queen.png" alt="black_queen" width="175" height="150">
+  </div>
+
+  <div class="b_team_w_tile">
+    <img src="./Chess_Pieces/no_background/black_king.png" alt="black_king" width="175" height="150">
+  </div>
+
+  <div class="b_team_b_tile">
+    <img src="./Chess_Pieces/no_background/black_bishop.png" alt="black_bishop" width="175" height="150">
+  </div>
+
+  <div class="b_team_w_tile">
+    <img src="./Chess_Pieces/no_background/black_knight.png" alt="black_knight" width="175" height="150">
+  </div>
+
+  <div class="b_team_b_tile">
+    <img src="./Chess_Pieces/no_background/black_rook.png" alt="black_rook" width="175" height="150">
+  </div>
+
+  <div class="b_team_b_tile">
+    <img src="./Chess_Pieces/no_background/black_pawn.png" alt="black_pawn" width="175" height="150">
+  </div>
+
+  <div class="b_team_w_tile">
+    <img src="./Chess_Pieces/no_background/black_pawn.png" alt="black_pawn" width="175" height="150">
+  </div>
+
+  <div class="b_team_b_tile">
+    <img src="./Chess_Pieces/no_background/black_pawn.png" alt="black_pawn" width="175" height="150">
+  </div>
+
+  <div class="b_team_w_tile">
+    <img src="./Chess_Pieces/no_background/black_pawn.png" alt="black_pawn" width="175" height="150">
+  </div>
+
+  <div class="b_team_b_tile">
+    <img src="./Chess_Pieces/no_background/black_pawn.png" alt="black_pawn" width="175" height="150">
+  </div>
+
+  <div class="b_team_w_tile">
+    <img src="./Chess_Pieces/no_background/black_pawn.png" alt="black_pawn" width="175" height="150">
+  </div>
+
+  <div class="b_team_b_tile">
+    <img src="./Chess_Pieces/no_background/black_pawn.png" alt="black_pawn" width="175" height="150">
+  </div>
+
+  <div class="b_team_w_tile">
+    <img src="./Chess_Pieces/no_background/black_pawn.png" alt="black_pawn" width="175" height="150">
+  </div>
+
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>  
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>
+
+  <div class="b_tile"></div>
+  <div class="w_tile"></div>  
+  <div class="b_tile"></div>
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>  
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>
+  <div class="w_tile"></div>
+
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>
+  <div class="w_tile"></div>  
+  <div class="b_tile"></div>
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>  
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>
+
+  <div class="b_tile"></div>
+  <div class="w_tile"></div>  
+  <div class="b_tile"></div>
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>  
+  <div class="w_tile"></div>
+  <div class="b_tile"></div>
+  <div class="w_tile"></div>
+
+  <div class="w_team_w_tile">
+    <img src="Chess_Pieces/no_background/white_pawn.png" alt="white_pawn" width="175" height="150">
+  </div>
+
+  <div class="w_team_b_tile">
+    <img src="Chess_Pieces/no_background/white_pawn.png" alt="white_pawn" width="175" height="150">
+  </div>
+
+  <div class="w_team_w_tile">
+    <img src="Chess_Pieces/no_background/white_pawn.png" alt="white_pawn" width="175" height="150">
+  </div>
+
+  <div class="w_team_b_tile">
+    <img src="Chess_Pieces/no_background/white_pawn.png" alt="white_pawn" width="175" height="150">
+  </div>
+
+  <div class="w_team_w_tile">
+    <img src="Chess_Pieces/no_background/white_pawn.png" alt="white_pawn" width="175" height="150">
+  </div>
+
+  <div class="w_team_b_tile">
+    <img src="Chess_Pieces/no_background/white_pawn.png" alt="white_pawn" width="175" height="150">
+  </div>
+
+  <div class="w_team_w_tile">
+    <img src="Chess_Pieces/no_background/white_pawn.png" alt="white_pawn" width="175" height="150">
+  </div>
+
+  <div class="w_team_b_tile">
+    <img src="Chess_Pieces/no_background/white_pawn.png" alt="white_pawn" width="175" height="150">
+  </div>
+
+  <div class="w_team_b_tile">
+    <img src="Chess_Pieces/no_background/white_rook.png" alt="white_rook" width="175" height="150">
+  </div>
+
+  <div class="w_team_w_tile">
+    <img src="Chess_Pieces/no_background/white_knight.png" alt="white_knight" width="175" height="150">
+  </div>
+
+  <div class="w_team_b_tile">
+    <img src="Chess_Pieces/no_background/white_bishop.png" alt="white_bishop" width="175" height="150">
+  </div>
+
+  <div class="w_team_w_tile">
+    <img src="Chess_Pieces/no_background/white_queen.png" alt="white_queen" width="175" height="150">
+  </div>
+
+  <div class="w_team_b_tile">
+    <img src="Chess_Pieces/no_background/white_king.png" alt="white_king" width="175" height="150">
+  </div>
+
+  <div class="w_team_w_tile">
+    <img src="Chess_Pieces/no_background/white_bishop.png" alt="white_bishop" width="175" height="150">
+  </div>
+
+  <div class="w_team_b_tile">
+    <img src="Chess_Pieces/no_background/white_knight.png" alt="white_knight" width="175" height="150">
+  </div>
+
+  <div class="w_team_w_tile">
+    <img src="Chess_Pieces/no_background/white_rook.png" alt="white_rook" width="175" height="150">
+  </div>
+
+</div>
+
+</body>
+</html>

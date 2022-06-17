@@ -1,0 +1,4 @@
+Echecs(Joueur,Matériel,Tournois)
+Joueur(Nom,Prénom,Age,Niveau,Victoires,Défaites)
+Matériel(Pièces,Plateau,Alarme)
+Tournois(Salle,Règles,Dates,Heure,Joueur)

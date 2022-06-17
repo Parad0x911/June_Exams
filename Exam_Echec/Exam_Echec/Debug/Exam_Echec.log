@@ -1,0 +1,6 @@
+﻿  Source.cpp
+C:\Users\Guillaume Legoullon\source\repos\Exam_Echec\Exam_Echec\Source.cpp(27,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\Guillaume Legoullon\source\repos\Exam_Echec\Exam_Echec\Source.cpp(88,26): warning C4477: 'fprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+C:\Users\Guillaume Legoullon\source\repos\Exam_Echec\Exam_Echec\Source.cpp(89,27): warning C4477: 'fprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+C:\Users\Guillaume Legoullon\source\repos\Exam_Echec\Exam_Echec\Source.cpp(90,27): warning C4477: 'fprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+  Exam_Echec.vcxproj -> C:\Users\Guillaume Legoullon\source\repos\Exam_Echec\Debug\Exam_Echec.exe
